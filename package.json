@@ -1,0 +1,22 @@
+{
+  "name": "habc-admin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.5",
+  "dependencies": {
+    "@types/node": "^22.13.13",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/runtime-core": "^3.5.13",
+    "pinia": "^3.0.1",
+    "vite": "^6.2.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  }
+}
