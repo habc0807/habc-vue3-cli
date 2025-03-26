@@ -51,6 +51,10 @@ export default defineConfig({
             include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
             dts: "src/components.d.ts",
         }),
-        Layouts()
+        Layouts({
+            layoutsDirs: 'src/layouts',
+            pagesDirs: 'src/pages',
+            defaultLayout: 'src/layouts/default.vue'
+        })
     ]
 })
