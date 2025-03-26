@@ -87,9 +87,14 @@
   </div>
 </template>
 
+<route lang="yaml">
+meta:
+layout: login
+</route>
+
 <script setup lang="ts">
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+// import { ref } from "vue";
+// import { useRouter } from "vue-router";
 const router = useRouter();
 
 let num = ref(0);

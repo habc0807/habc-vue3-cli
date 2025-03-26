@@ -7,6 +7,7 @@ import Pages from "vite-plugin-pages"
 import AutoImport from 'unplugin-auto-import/vite' // 函数/API 自动导入Tree-shaking
 import Components from 'unplugin-vue-components/vite' // 组件自动导入 
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Layouts from 'vite-plugin-vue-layouts'
 
 
 export default defineConfig({
@@ -26,14 +27,15 @@ export default defineConfig({
             ]
         }),
         Pages({
-            extensions: ['vue']
+            extensions: ["vue", "md"],
+            exclude: ['**/components/*.vue'], // 排除页面中的子组件
         }),
         AutoImport({
             imports: [
                 'vue',
                 'vue-router',
                 'pinia',
-                // 'vue-i18n',
+                'vue-i18n',
                 '@vueuse/head',
                 '@vueuse/core',
             ],
@@ -41,11 +43,14 @@ export default defineConfig({
             dts: 'src/auto-imports.d.ts',
         }),
         Components({
-            extensions: ['vue', 'md'],
+            // 增加 src/**/components 支持页面中的子组件自动加载
+            dirs: ['src/components', 'src/**/components'],
+            // allow auto load markdown components under `./src/components/`
+            extensions: ["vue", "md"],
+            // allow auto import and register components used in markdown
             include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-            resolvers: [ElementPlusResolver()],
-            // dts: true,
-            dts: 'src/components.d.ts',
+            dts: "src/components.d.ts",
         }),
+        Layouts()
     ]
 })
