@@ -1,7 +1,7 @@
 <template>
   <div>indexpage</div>
   <Card />
-  <default-layout></default-layout>
+  <!-- <default-layout></default-layout> -->
 </template>
 
 <route lang="yaml">
